@@ -25,6 +25,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Starting an inline comment on the first words after a diagram now places the comment form beside the selected sentence instead of beside the diagram.
 - Comments created from quotes containing HTML character references now anchor to the same text and offsets the browser sees, instead of appearing orphaned.
 
+### Security
+
+- rw's HTTP/2 stack no longer carries the `h2` flaw a malicious direct peer could exploit with empty DATA frames to consume memory without bound or crash an HTTP/2 connection (RUSTSEC-2026-0258, GHSA-q83h-524g-xf6h). The release binaries fix both surfaces — the HTTP/2 server and the S3/HTTPS client; `@rwdocs/core` fixes its S3/HTTPS client. Upgrading is all you need.
+
 ## [0.1.35] - 2026-08-07
 
 ### New Features
